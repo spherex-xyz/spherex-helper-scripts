@@ -9,6 +9,7 @@ const assert = require("assert");
 const SPHEREX_OPERATOR_ADDRESS = "0x0000000000000000000000000000000000001337";
 const SPHEREX_ENGINE_ADDRESS = "0x0000000000000000000000000000000000001337";
 const CONTRACTS_DATA_PATH = "";
+const LOCAL_FORK = true;
 
 // ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
 
@@ -134,15 +135,15 @@ async function main() {
     return;
   }
 
-  // used for real chain interaction.
-  // [owner] = await ethers.getSigners();
-
-  // used for testing in local fork
-  await hre.network.provider.request({
-    method: "hardhat_impersonateAccount",
-    params: [SPHEREX_OPERATOR_ADDRESS],
-  });
-  const owner = await ethers.provider.getSigner(SPHEREX_OPERATOR_ADDRESS);
+  if (LOCAL_FORK) {
+    await hre.network.provider.request({
+      method: "hardhat_impersonateAccount",
+      params: [SPHEREX_OPERATOR_ADDRESS],
+    });
+    const owner = await ethers.provider.getSigner(SPHEREX_OPERATOR_ADDRESS);
+  } else {
+    [owner] = await ethers.getSigners();
+  }
 
   const engineContract = await ethers.getContractAt(
     ENGINE_MINI_ABI,
