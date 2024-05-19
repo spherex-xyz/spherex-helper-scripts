@@ -1,6 +1,22 @@
 # spherex-helper-scripts
 
+## Run in local fork
+The current config is forking linea chain (modify as youu like in the hardhat.config.js):
+in one terminal run 
+```
+npx hardhat node
+```
+and in a second terminal run:
+```
+npx hardhat run <script> --network local
+```
+
+## Run against a real network
 In order to run the scripts against a real network you need to configure the hardhat.config.js with the netwroks details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
+Run in a terminal:
+```
+npx hardhat run <script> --network <name of the chain in the hardhat config>
+```
 
 
 ## configureProtecteContracts.js
