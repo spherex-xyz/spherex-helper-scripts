@@ -28,8 +28,8 @@ const SPHEREX_ENGINE_ADDRESS = "0x0000000000000000000000000000000000001337";
 const CONTRACTS_DATA_PATH = "";
 const LOCAL_FORK = true;
 ```
-
 The contracts_data file should be provided by the spherex team.
+**This script should be run by the spherex admin of the protected contracts (assuming it is the same for all the contracts)** 
 
 
 ## deployAndConfigureEngine.js
@@ -41,3 +41,5 @@ const ALLOWED_PATTWERNS_PATH = "";
 const LOCAL_FORK = true;
 ```
 The allowed senders and patterns should be provided by the spherex team.
+
+**This script should be run by the spherex admin of the spherex engine** 
