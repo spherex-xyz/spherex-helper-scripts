@@ -17,7 +17,7 @@ Run in a terminal:
 ```
 npx hardhat run <script> --network <name of the chain in the hardhat config> --no-compile
 ```
-
+In both scripts there a global const LOCAL_FORK, dont forget to set it to false!
 
 ## configureProtecteContracts.js
 Configure the operator, engine and protected sigs for each contract in the contracts' data file.
