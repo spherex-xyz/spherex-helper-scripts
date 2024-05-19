@@ -1,6 +1,6 @@
 # spherex-helper-scripts
 
-In order to run the scripts against a real network you need to configure the hardhat.config.js (https://hardhat.org/tutorial/deploying-to-a-live-network) file with the netwroks you want and create .env file with your PRIVATE_KEY (see .env.example)
+In order to run the scripts against a real network you need to configure the hardhat.config.js with the netwroks details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
 
 
 ## configureProtecteContracts.js
