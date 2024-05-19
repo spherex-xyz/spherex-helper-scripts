@@ -5,10 +5,8 @@ const assert = require("assert");
 
 // ~~~~~~~~~~~ SETTINGS ~~~~~~~~~~~
 // this assume the owner and the operator will be the same address (if this is not the case the script should be altered).
-const ALLOWED_SENDER_PATH =
-  "/Users/eyalfine/Projects/spherex-helper-contracts/spherex-helper-scripts/data/cliplineaallowedsenders.json";
-const ALLOWED_PATTWERNS_PATH =
-  "/Users/eyalfine/Projects/spherex-helper-contracts/spherex-helper-scripts/data/cliplineaallowenpatterns.json";
+const ALLOWED_SENDER_PATH = "";
+const ALLOWED_PATTWERNS_PATH = "";
 const LOCAL_FORK = true;
 
 // ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
