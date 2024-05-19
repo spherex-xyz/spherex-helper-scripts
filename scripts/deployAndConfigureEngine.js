@@ -11,6 +11,8 @@ const LOCAL_FORK = true;
 
 // ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
 const HARDHAT_TEST_WALLET = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+const ADDING_PATTERNS_CHUNK_SIZE = 50;
+
 async function main() {
   console.log("Starting script");
   let allowedSenders;
@@ -19,8 +21,9 @@ async function main() {
     const allowedSendersRaw = fs.readFileSync(ALLOWED_SENDER_PATH, "utf8");
     allowedSenders = JSON.parse(allowedSendersRaw);
     console.log("allowedSenders data loaded");
-    const allowedPaternsRaw = fs.readFileSync(ALLOWED_PATTWERNS_PATH, "utf8");
-    allowedPatterns = JSON.parse(allowedPaternsRaw);
+
+    const allowedPatternsRaw = fs.readFileSync(ALLOWED_PATTWERNS_PATH, "utf8");
+    allowedPatterns = JSON.parse(allowedPatternsRaw);
     console.log("allowedPatterns data loaded");
   } catch (err) {
     console.error("Error reading or parsing file:", err);
@@ -40,16 +43,15 @@ async function main() {
     [owner] = await ethers.getSigners();
   }
 
-  const SpherexEngine = await ethers.getContractFactory("SphereXEngine");
-  const spherexEngine = await SpherexEngine.deploy();
+  const spherexEngineFactory = await ethers.getContractFactory("SphereXEngine");
+  const spherexEngine = await spherexEngineFactory.deploy();
   console.log("engine address is " + spherexEngine.target);
 
   await spherexEngine.addAllowedSender(allowedSenders);
   console.log("allowed senders added");
-  const chunkSize = 50;
 
-  for (let i = 0; i < allowedPatterns.length; i += chunkSize) {
-    const chunk = allowedPatterns.slice(i, i + chunkSize);
+  for (let i = 0; i < allowedPatterns.length; i += ADDING_PATTERNS_CHUNK_SIZE) {
+    const chunk = allowedPatterns.slice(i, i + ADDING_PATTERNS_CHUNK_SIZE);
     await spherexEngine.addAllowedPatterns(chunk);
     console.log(
       "added " + i + " out of " + allowedPatterns.length + " patterns"

@@ -192,7 +192,7 @@ async function main() {
         console.log("Selectors added");
       }
 
-      // this eill fail in local fork if no real engine was depolied to it before.
+      // this will fail in local fork if no real engine was depolyed to it before.
       await (
         await protected.changeSphereXEngine(SPHEREX_ENGINE_ADDRESS)
       ).wait();

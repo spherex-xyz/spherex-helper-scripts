@@ -1,7 +1,13 @@
 # spherex-helper-scripts
 
+This repo provides scripts to help you configure and set up the protection of you'r protocol with spherex. 
+
+> This assumes your smart contracts are already integrated with spherex.
+
+
+
 ## Run in local fork
-The current config is forking linea chain (modify as youu like in the hardhat.config.js):
+The current config is forking linea chain (modify as you like in the hardhat.config.js):
 in one terminal run 
 ```
 npx hardhat node
@@ -11,15 +17,9 @@ and in a second terminal run:
 npx hardhat run <script> --network local --no-compile
 ```
 
-## Run against a real network
-In order to run the scripts against a real network you need to configure the hardhat.config.js with the netwroks details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
-Run in a terminal:
-```
-npx hardhat run <script> --network <name of the chain in the hardhat config> --no-compile
-```
-In both scripts there a global const LOCAL_FORK, dont forget to set it to false!
+## The scripts
 
-## configureProtecteContracts.js
+### configureProtecteContracts.js
 Configure the operator, engine and protected sigs for each contract in the contracts' data file.
 In order to run the script, change the four settings at the top of the scripts:
 ```
@@ -32,7 +32,7 @@ const LOCAL_FORK = true;
 The contracts_data file should be provided by the spherex team.
 
 
-## deployAndConfigureEngine.js
+### deployAndConfigureEngine.js
 Deploy an engine, sets the allowed senders and allowed patterns (does not turn on protection!).
 In order to run set the three settings at the top of the sciprt:
 ```
@@ -41,3 +41,11 @@ const ALLOWED_PATTWERNS_PATH = "";
 const LOCAL_FORK = true;
 ```
 The allowed senders and patterns should be provided by the spherex team.
+
+## Run against a real network
+In order to run the scripts against a real network you need to configure the hardhat.config.js with the netwroks details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
+Run in a terminal:
+```
+npx hardhat run <script> --network <name of the chain in the hardhat config> --no-compile
+```
+In both scripts there a global const LOCAL_FORK, dont forget to set it to false!
