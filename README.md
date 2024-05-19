@@ -11,3 +11,8 @@ const LOCAL_FORK = true;
 ```
 
 The contracts_data file should be provided to u by the spherex team.
+
+The script expect to run inside hardhat environment:
+```
+npx hardhat run scripts/configureProtectedContracts.js 
+```
