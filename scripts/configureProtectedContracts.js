@@ -135,13 +135,17 @@ async function main() {
     return;
   }
 
+  let owner;
+
   if (LOCAL_FORK) {
+    console.log("Running on local fork");
     await hre.network.provider.request({
       method: "hardhat_impersonateAccount",
       params: [SPHEREX_OPERATOR_ADDRESS],
     });
-    const owner = await ethers.provider.getSigner(SPHEREX_OPERATOR_ADDRESS);
+    owner = await ethers.provider.getSigner(SPHEREX_OPERATOR_ADDRESS);
   } else {
+    console.log("Running on real chain");
     [owner] = await ethers.getSigners();
   }
 
