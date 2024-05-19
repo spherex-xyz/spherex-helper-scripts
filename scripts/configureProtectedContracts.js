@@ -134,19 +134,16 @@ async function main() {
     return;
   }
 
-  // ~~~~~~~~~~~ HELPERS ~~~~~~~~~~~
-
   // used for real chain interaction.
   // [owner] = await ethers.getSigners();
 
   // used for testing in local fork
   await hre.network.provider.request({
     method: "hardhat_impersonateAccount",
-    params: ["0x0000619b2b909a6a422c18eb804b92f798370705"],
+    params: [SPHEREX_OPERATOR_ADDRESS],
   });
-  const owner = await ethers.provider.getSigner(
-    "0x0000619b2b909a6a422c18eb804b92f798370705"
-  );
+  const owner = await ethers.provider.getSigner(SPHEREX_OPERATOR_ADDRESS);
+
   const engineContract = await ethers.getContractAt(
     ENGINE_MINI_ABI,
     SPHEREX_ENGINE_ADDRESS,
