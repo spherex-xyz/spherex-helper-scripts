@@ -8,14 +8,14 @@ npx hardhat node
 ```
 and in a second terminal run:
 ```
-npx hardhat run <script> --network local
+npx hardhat run <script> --network local --no-compile
 ```
 
 ## Run against a real network
 In order to run the scripts against a real network you need to configure the hardhat.config.js with the netwroks details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
 Run in a terminal:
 ```
-npx hardhat run <script> --network <name of the chain in the hardhat config>
+npx hardhat run <script> --network <name of the chain in the hardhat config> --no-compile
 ```
 
 
@@ -31,10 +31,6 @@ const LOCAL_FORK = true;
 
 The contracts_data file should be provided by the spherex team.
 
-The script expect to run inside hardhat environment:
-```
-npx hardhat run scripts/configureProtectedContracts.js 
-```
 
 ## deployAndConfigureEngine.js
 Deploy an engine, sets the allowed senders and allowed patterns (does not turn on protection!).
@@ -45,8 +41,3 @@ const ALLOWED_PATTWERNS_PATH = "";
 const LOCAL_FORK = true;
 ```
 The allowed senders and patterns should be provided by the spherex team.
-
-The script expect to run inside hardhat environment:
-```
-npx hardhat run scripts/deployAndConfigureEngine.js 
-```
