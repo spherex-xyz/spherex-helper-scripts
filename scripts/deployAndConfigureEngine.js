@@ -47,12 +47,17 @@ async function main() {
   await spherexEngine.addAllowedSender(allowedSenders);
   console.log("allowed senders added");
   const chunkSize = 50;
-
+  let patternsAdded = 0;
   for (let i = 0; i < allowedPatterns.length; i += chunkSize) {
     const chunk = allowedPatterns.slice(i, i + chunkSize);
     await spherexEngine.addAllowedPatterns(chunk);
+    patternsAdded += chunk.length;
     console.log(
-      "added " + i + " out of " + allowedPatterns.length + " patterns"
+      "added " +
+        patternsAdded +
+        " out of " +
+        allowedPatterns.length +
+        " patterns"
     );
   }
 }
