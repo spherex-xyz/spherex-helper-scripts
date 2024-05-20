@@ -11,7 +11,6 @@ const LOCAL_FORK = true;
 
 // ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
 const HARDHAT_TEST_WALLET = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
-const ADDING_PATTERNS_CHUNK_SIZE = 50;
 
 async function main() {
   console.log("Starting script");
