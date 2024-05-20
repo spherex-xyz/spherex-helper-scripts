@@ -8,7 +8,7 @@ npx hardhat node
 ```
 and in a second terminal run:
 ```
-npx hardhat run <script> --network local --no-compile
+npx hardhat run <script> --network localhost --no-compile
 ```
 
 ## Run against a real network
