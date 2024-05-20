@@ -6,7 +6,7 @@ const assert = require("assert");
 // ~~~~~~~~~~~ SETTINGS ~~~~~~~~~~~
 // this assume the owner and the operator will be the same address (if this is not the case the script should be altered).
 const ALLOWED_SENDER_PATH = "";
-const ALLOWED_PATTWERNS_PATH = "";
+const ALLOWED_PATTERNS_PATH = "";
 const LOCAL_FORK = true;
 
 // ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
@@ -22,7 +22,7 @@ async function main() {
     allowedSenders = JSON.parse(allowedSendersRaw);
     console.log("allowedSenders data loaded");
 
-    const allowedPatternsRaw = fs.readFileSync(ALLOWED_PATTWERNS_PATH, "utf8");
+    const allowedPatternsRaw = fs.readFileSync(ALLOWED_PATTERNS_PATH, "utf8");
     allowedPatterns = JSON.parse(allowedPatternsRaw);
     console.log("allowedPatterns data loaded");
   } catch (err) {
@@ -50,11 +50,19 @@ async function main() {
   await spherexEngine.addAllowedSender(allowedSenders);
   console.log("allowed senders added");
 
-  for (let i = 0; i < allowedPatterns.length; i += ADDING_PATTERNS_CHUNK_SIZE) {
-    const chunk = allowedPatterns.slice(i, i + ADDING_PATTERNS_CHUNK_SIZE);
+  const PATTERN_CHUNK_SIZE = 50;
+  let patternsAdded = 0;
+
+  for (let i = 0; i < allowedPatterns.length; i += PATTERN_CHUNK_SIZE) {
+    const chunk = allowedPatterns.slice(i, i + PATTERN_CHUNK_SIZE);
     await spherexEngine.addAllowedPatterns(chunk);
+    patternsAdded += chunk.length;
     console.log(
-      "added " + i + " out of " + allowedPatterns.length + " patterns"
+      "added " +
+        patternsAdded +
+        " out of " +
+        allowedPatterns.length +
+        " patterns"
     );
   }
 }
