@@ -33,7 +33,7 @@ The contracts_data file should be provided by the spherex team.
 
 
 ### deployAndConfigureEngine.js
-Deploy an engine, sets the allowed senders and allowed patterns (does not turn on protection!).
+Deploy an engine, verify it (using the [hardhat-plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify)) and sets the allowed senders and allowed patterns (does not turn on protection!).
 In order to run set the three settings at the top of the script:
 ```
 const ALLOWED_SENDER_PATH = "";
