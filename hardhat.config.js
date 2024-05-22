@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-verify");
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -20,7 +21,8 @@ module.exports = {
       },
     },
     sepolia: {
-      url: "https://sepolia.infura.io/v3/aa26b18b8e6f411b8240aa3a988f74f4",
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts: [process.env.PRIVATE_KEY],
     },
   },
   etherscan: {
