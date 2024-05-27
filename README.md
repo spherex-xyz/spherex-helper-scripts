@@ -42,6 +42,18 @@ const LOCAL_FORK = true;
 ```
 The allowed senders and patterns should be provided by the spherex team.
 
+### configureEngine.js
+Sets the allowed senders and allowed patterns for an already deployed engine(does not turn on protection!).
+In order to run set the three settings at the top of the script:
+```
+const ALLOWED_SENDER_PATH = "";
+const ALLOWED_PATTERNS_PATH = "";
+const ENGINE_ADDRESS = "";
+const LOCAL_FORK = true;
+```
+The allowed senders and patterns should be provided by the spherex team.
+
+
 ## Run in a real Chain
 In order to run the scripts against a real network you need to configure the hardhat.config.js with the chain's details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
 Run in a terminal:
