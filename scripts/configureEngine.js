@@ -9,8 +9,6 @@ const ALLOWED_SENDER_PATH = "";
 const ALLOWED_PATTERNS_PATH = "";
 const ENGINE_ADDRESS = "";
 const LOCAL_FORK = true;
-
-// ~~~~~~~~~~~ SPHERX ABI ~~~~~~~~~~~
 const HARDHAT_TEST_WALLET = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 
 async function main() {
