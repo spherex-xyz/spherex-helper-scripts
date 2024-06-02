@@ -34,7 +34,7 @@ The contracts_data file should be provided by the spherex team.
 
 ### deployAndConfigureEngine.js
 Deploy an engine, sets the allowed senders and allowed patterns (does not turn on protection!).
-In order to run set the three settings at the top of the script:
+In order to run the script set the three settings at the top of the script:
 ```
 const ALLOWED_SENDER_PATH = "";
 const ALLOWED_PATTERNS_PATH = "";
@@ -44,7 +44,7 @@ The allowed senders and patterns should be provided by the spherex team.
 
 ### configureEngine.js
 Sets the allowed senders and allowed patterns for an already deployed engine(does not turn on protection!).
-In order to run set the three settings at the top of the script:
+In order to run the script set the three settings at the top of the script:
 ```
 const ALLOWED_SENDER_PATH = "";
 const ALLOWED_PATTERNS_PATH = "";
@@ -52,6 +52,23 @@ const ENGINE_ADDRESS = "";
 const LOCAL_FORK = true;
 ```
 The allowed senders and patterns should be provided by the spherex team.
+
+### turnEngineOn.js
+Turn the engine on, should only be run after all the protected contracts and the engine have been configured!.
+Settings need to be set:
+```
+const ENGINE_ADDRESS = "";
+const LOCAL_FORK = true;
+```
+
+### turnEngineOff.js
+Turn the engine off.
+After this action the engine will not revert!
+Settings need to be set:
+```
+const ENGINE_ADDRESS = "";
+const LOCAL_FORK = true;
+```
 
 
 ## Run in a real Chain
