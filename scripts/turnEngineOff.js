@@ -3,9 +3,9 @@ const hre = require("hardhat");
 
 // ~~~~~~~~~~~ SETTINGS ~~~~~~~~~~~
 // this assume the owner and the operator will be the same address (if this is not the case the script should be altered).
-const ENGINE_ADDRESS = "0x7240F10FB48379073B2b34558b0a4a9B7d05EDcf";
+const ENGINE_ADDRESS = "";
 const LOCAL_FORK = true;
-const HARDHAT_TEST_WALLET = "0x0000619b2b909a6a422c18eb804b92f798370705";
+const HARDHAT_TEST_WALLET = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
 
 async function main() {
   console.log("Starting script");
