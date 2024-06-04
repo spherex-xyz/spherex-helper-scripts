@@ -70,6 +70,14 @@ const ENGINE_ADDRESS = "";
 const LOCAL_FORK = true;
 ```
 
+### addPatternsToEngine.js
+Add patterns to the engine.
+Settings need to be set:
+```
+const ENGINE_ADDRESS = "";
+const LOCAL_FORK = true;
+const patterns = []; // an array of strings of hashes as created by the dashboard
+```
 
 ## Run in a real Chain
 In order to run the scripts against a real network you need to configure the hardhat.config.js with the chain's details (see https://hardhat.org/tutorial/deploying-to-a-live-network)   and create .env file with your PRIVATE_KEY (see .env.example)
